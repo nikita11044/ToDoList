@@ -1,16 +1,26 @@
-.active-filter {
-  background-color: aquamarine;
-  outline: none;
+/*
+.App {
+  padding: 30px;
+  display: flex;
 }
 
-.is-done {
-  opacity: 0.5;
+.App > div {
+  margin-right: 50px;
 }
 
 .error {
-  border: 2px solid red;
+  border: red 1px solid;
 }
 
 .error-message {
   color: red;
 }
+
+.active-filter {
+  background-color: aquamarine;
+}
+
+.is-done {
+  opacity: 0.5;
+}
+*/
