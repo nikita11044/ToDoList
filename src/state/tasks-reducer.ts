@@ -28,7 +28,7 @@ export type ChangeTaskTitleActionType = {
 let initialState: TasksStateType = {}
 
 type ActionsType = RemoveTaskActionType | AddTaskActionType
- | ChangeTaskStatusActionType | ChangeTaskTitleActionType
+    | ChangeTaskStatusActionType | ChangeTaskTitleActionType
     | AddTodolistActionType | RemoveTodolistActionType;
 
 export const tasksReducer = (state: TasksStateType = initialState, action: ActionsType): TasksStateType => {
@@ -49,24 +49,28 @@ export const tasksReducer = (state: TasksStateType = initialState, action: Actio
             return stateCopy;
         }
         case 'CHANGE-TASK-STATUS': {
-            const stateCopy = {...state};
-
-            let tasks = stateCopy[action.todolistId];
-            let task = tasks.find(t => t.id === action.taskId);
-            if (task) {
-                task.isDone = action.isDone;
+            return {
+                ...state,
+                [action.todolistId]: state[action.todolistId].map(task => {
+                    if (task.id === action.taskId) {
+                        return {...task, isDone: action.isDone}
+                    } else {
+                        return task
+                    }
+                })
             }
-            return stateCopy;
         }
         case 'CHANGE-TASK-TITLE': {
-            const stateCopy = {...state};
-
-            let tasks = stateCopy[action.todolistId];
-            let task = tasks.find(t => t.id === action.taskId);
-            if (task) {
-                task.title = action.title;
+            return {
+                ...state,
+                [action.todolistId]: state[action.todolistId].map(task => {
+                    if (task.id === action.taskId) {
+                        return {...task, title: action.title}
+                    } else {
+                        return task
+                    }
+                })
             }
-            return stateCopy;
         }
         case 'ADD-TODOLIST': {
             const stateCopy = {...state};
@@ -86,19 +90,19 @@ export const tasksReducer = (state: TasksStateType = initialState, action: Actio
 }
 
 export const removeTaskAC = (taskId: string, todolistId: string): RemoveTaskActionType => {
-    return { type: 'REMOVE-TASK', todolistId, taskId }
+    return {type: 'REMOVE-TASK', todolistId, taskId}
 }
 export const addTaskAC = (title: string, todolistId: string): AddTaskActionType => {
-    return { type: 'ADD-TASK', title, todolistId}
+    return {type: 'ADD-TASK', title, todolistId}
 }
 export const changeTaskStatusAC = (taskId: string,
                                    isDone: boolean,
                                    todolistId: string): ChangeTaskStatusActionType => {
-    return { type: 'CHANGE-TASK-STATUS', isDone, todolistId, taskId}
+    return {type: 'CHANGE-TASK-STATUS', isDone, todolistId, taskId}
 }
 export const changeTaskTitleAC = (taskId: string,
-                                   title: string,
-                                   todolistId: string): ChangeTaskTitleActionType => {
-    return { type: 'CHANGE-TASK-TITLE', title, todolistId, taskId}
+                                  title: string,
+                                  todolistId: string): ChangeTaskTitleActionType => {
+    return {type: 'CHANGE-TASK-TITLE', title, todolistId, taskId}
 }
 
