@@ -25,14 +25,14 @@ export const TaskIsDoneStory = Template.bind({});
 TaskIsDoneStory.args = {
     ...baseArgs,
     task: {id: '1', title: 'REACT', isDone: false},
-    todolistID: 'todolist1'
+    todolistId: 'todolist1'
 };
 
 export const TaskIsNotDoneStory = Template.bind({});
 TaskIsNotDoneStory.args = {
     ...baseArgs,
     task: {id: '1', title: 'REACT', isDone: true},
-    todolistID: 'todolist1'
+    todolistId: 'todolist1'
 };
 
 
