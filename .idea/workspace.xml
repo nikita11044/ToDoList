@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="484a79ff-ee57-46e8-9174-fa4c2d4e337c" name="Default Changelist" comment="" />
+    <list default="true" id="f71c6da1-efdd-4283-8239-892218161902" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectId" id="1qaM7f9sIHkwyTdkOchyl8GHgM2" />
+  <component name="ProjectId" id="1qsjil7O7v1alOBJ9vR9oMdq7N5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -19,26 +16,33 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ToDoListEnhanced" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SocialNetwork" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="D:\projects\todolist-13\node_modules\typescript\lib" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="ts.external.directory.path" value="D:\projects\todolist-14\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="484a79ff-ee57-46e8-9174-fa4c2d4e337c" name="Default Changelist" comment="" />
-      <created>1617313085497</created>
+      <changelist id="f71c6da1-efdd-4283-8239-892218161902" name="Default Changelist" comment="" />
+      <created>1617875321430</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1617313085497</updated>
-      <workItem from="1617313087466" duration="23000" />
-      <workItem from="1617313259607" duration="352000" />
-      <workItem from="1617386882044" duration="2546000" />
+      <updated>1617875321430</updated>
+      <workItem from="1617875323993" duration="51000" />
+      <workItem from="1617875389627" duration="2567000" />
+      <workItem from="1617895105850" duration="222000" />
+      <workItem from="1617895353835" duration="12083000" />
+      <workItem from="1617996282073" duration="12000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
