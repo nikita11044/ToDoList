@@ -1,6 +1,6 @@
 import {Dispatch} from 'redux'
 import {authAPI} from '../api/todolists-api'
-import {setIsLoggedInAC} from '../features/Login/auth-reducer'
+import {setIsLoggedInAC} from '../features/Auth/auth-reducer'
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 
 const initialState: InitialStateType = {

@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be4625d0-062a-4d49-b58a-e55b91ba8b3e" name="Default Changelist" comment="Grand tests refactor">
+    <list default="true" id="be4625d0-062a-4d49-b58a-e55b91ba8b3e" name="Default Changelist" comment="Added CreateAsyncThunk">
+      <change afterPath="$PROJECT_DIR$/src/app/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/selectors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/Auth/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/Auth/selectors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/TodolistsList/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/todolists-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/todolists-api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Login/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Login/auth-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Login/auth-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Auth/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Login/auth-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Auth/auth-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/tasks-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/decorators/ReduxStoreProviderDecorator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stories/decorators/ReduxStoreProviderDecorator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/error-utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/error-utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,12 +56,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../todolistV3" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="D:\projects\todolistV2\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Jest.correct task should be deleted from correct array">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\todolistV2\src\features\TodolistsList" />
+      <recent name="D:\projects\todolistV2\src\features\TodolistsList\Todolist\Task" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.start">
     <configuration name="correct task should be deleted from correct array" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -85,8 +107,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.correct task should be deleted from correct array" />
         <item itemvalue="npm.start" />
+        <item itemvalue="Jest.correct task should be deleted from correct array" />
         <item itemvalue="Jest.tasks should be added for todolist" />
       </list>
     </recent_temporary>
@@ -99,7 +121,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1621536380665</updated>
-      <workItem from="1621536384364" duration="10267000" />
+      <workItem from="1621536384364" duration="12226000" />
+      <workItem from="1621589855022" duration="3000" />
+      <workItem from="1621708820636" duration="162000" />
+      <workItem from="1621808619265" duration="1142000" />
+      <workItem from="1621890451698" duration="14000" />
+      <workItem from="1621931718377" duration="162000" />
+      <workItem from="1621932188042" duration="499000" />
+      <workItem from="1622146712836" duration="647000" />
+      <workItem from="1622189785170" duration="602000" />
+      <workItem from="1622405734062" duration="243000" />
+      <workItem from="1622576123668" duration="733000" />
+      <workItem from="1622613459578" duration="25000" />
+      <workItem from="1622670483549" duration="256000" />
+      <workItem from="1622672699632" duration="1678000" />
+      <workItem from="1622714547159" duration="41000" />
+      <workItem from="1622750040212" duration="611000" />
+      <workItem from="1622835498006" duration="632000" />
+      <workItem from="1622878716803" duration="1046000" />
+      <workItem from="1623183072293" duration="50000" />
+      <workItem from="1623305545155" duration="364000" />
+      <workItem from="1623615281704" duration="6279000" />
     </task>
     <task id="LOCAL-00001" summary="Grand tests refactor">
       <created>1621536877561</created>
@@ -108,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621536877561</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added CreateAsyncThunk">
+      <created>1621548629061</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1621548629061</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,10 +173,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Grand tests refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Grand tests refactor" />
+    <MESSAGE value="Added CreateAsyncThunk" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added CreateAsyncThunk" />
   </component>
 </project>
