@@ -92,15 +92,7 @@ export const updateTaskTC = createAsyncThunk('tasks/updateTask', async (param: {
 const slice = createSlice({
     name: 'tasks',
     initialState,
-    reducers: {
-        updateTaskAC(state, action: PayloadAction<{ taskId: string, model: UpdateDomainTaskModelType, todolistId: string }>) {
-            const tasks = state[action.payload.todolistId]
-            const index = tasks.findIndex(t => t.id === action.payload.taskId)
-            if (index > -1) {
-                tasks[index] = {...tasks[index], ...action.payload.model}
-            }
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder.addCase(addTodolistAC, (state, action) => {
             state[action.payload.todolist.id] = [];
@@ -125,14 +117,18 @@ const slice = createSlice({
         });
         builder.addCase(addTaskTC.fulfilled, (state, action) => {
             state[action.payload.todoListId].unshift(action.payload)
+        });
+        builder.addCase(updateTaskTC.fulfilled, (state, action) => {
+            const tasks = state[action.payload.todolistId]
+            const index = tasks.findIndex(t => t.id === action.payload.taskId)
+            if (index > -1) {
+                tasks[index] = {...tasks[index], ...action.payload.model}
+            }
         })
     }
 })
 
 export const tasksReducer = slice.reducer
-
-// actions
-export const {updateTaskAC} = slice.actions
 
 // types
 export type UpdateDomainTaskModelType = {
