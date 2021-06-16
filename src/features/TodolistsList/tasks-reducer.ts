@@ -1,31 +1,9 @@
-import {
-    AddTodolistActionType,
-    RemoveTodolistActionType,
-    SetTodolistsActionType,
-    addTodolistAC,
-    removeTodolistAC,
-    setTodolistsAC
-} from './todolists-reducer'
-import {
-    TaskPriorities,
-    TaskStatuses,
-    TaskType,
-    todolistsAPI,
-    TodolistType,
-    UpdateTaskModelType
-} from '../../api/todolists-api'
-import {Dispatch} from 'redux'
+import {TaskPriorities, TaskStatuses, TaskType, todolistsAPI, UpdateTaskModelType} from '../../api/todolists-api'
 import {AppRootStateType} from '../../app/store'
-import {setAppErrorAC, SetAppErrorActionType, setAppStatusAC, SetAppStatusActionType} from '../../app/app-reducer'
-import {
-    handleAsyncServerAppError,
-    handleAsyncServerNetworkError,
-    handleServerAppError,
-    handleServerNetworkError
-} from '../../utils/error-utils'
-import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
-import thunk from "redux-thunk";
-import {action} from "@storybook/addon-actions";
+import {setAppStatusAC} from '../../app/app-reducer'
+import {handleAsyncServerAppError, handleAsyncServerNetworkError} from '../../utils/error-utils'
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
+import {addTodolistTC, fetchTodolistsTC, removeTodolistTC} from "./todolists-reducer";
 
 const initialState: TasksStateType = {}
 
@@ -94,13 +72,13 @@ const slice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(addTodolistAC, (state, action) => {
+        builder.addCase(addTodolistTC.fulfilled, (state, action) => {
             state[action.payload.todolist.id] = [];
         });
-        builder.addCase(removeTodolistAC, (state, action) => {
+        builder.addCase(removeTodolistTC.fulfilled, (state, action) => {
             delete state[action.payload.id];
         });
-        builder.addCase(setTodolistsAC, (state, action) => {
+        builder.addCase(fetchTodolistsTC.fulfilled, (state, action) => {
             action.payload.todolists.forEach((tl: any) => {
                 state[tl.id] = []
             })
