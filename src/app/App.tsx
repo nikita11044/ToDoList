@@ -11,16 +11,14 @@ import {
     Typography
 } from '@material-ui/core'
 import {Menu} from '@material-ui/icons'
-import {TodolistsList} from '../features/TodolistsList/TodolistsList'
+import {TodolistsList} from '../features/TodolistsList'
 import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar'
-import {useDispatch, useSelector} from 'react-redux'
-import {AppRootStateType} from './store'
-import {initializeAppTC, RequestStatusType} from './app-reducer'
-import {BrowserRouter, NavLink, Route} from 'react-router-dom'
+import {useSelector} from 'react-redux'
+import {Route} from 'react-router-dom'
 import {Login} from '../features/Auth/Login'
-import {appSelectors} from "./index";
-import {logoutTC} from "../features/Auth/auth-reducer";
-import {authSelectors} from "../features/Auth";
+import {appActions, appSelectors} from "./index";
+import {authActions, authSelectors} from "../features/Auth";
+import {useActions} from "./store";
 
 type PropsType = {
     demo?: boolean
@@ -30,16 +28,18 @@ function App({demo = false}: PropsType) {
     const status = useSelector(appSelectors.selectStatus)
     const isInitialized = useSelector(appSelectors.selectIsInitialized)
     const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn)
-    const dispatch = useDispatch()
+
+    const {logoutTC} = useActions(authActions)
+    const {initializeAppTC} = useActions(appActions)
 
     useEffect(() => {
         if (!demo) {
-            dispatch(initializeAppTC())
+            initializeAppTC()
         }
     }, [])
 
     const logoutHandler = useCallback(() => {
-        dispatch(logoutTC())
+        logoutTC()
     }, [])
 
     if (!isInitialized) {

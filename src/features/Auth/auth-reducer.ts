@@ -1,11 +1,10 @@
-import {Dispatch} from 'redux'
-import {setAppStatusAC} from '../../app/app-reducer'
 import {authAPI, FieldErrorType, LoginParamsType} from '../../api/todolists-api'
 import {handleServerAppError, handleServerNetworkError} from '../../utils/error-utils'
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {AxiosError} from "axios";
-import {action} from "@storybook/addon-actions";
-import thunk from "redux-thunk";
+import {appActions} from "../../app";
+
+const {setAppStatusAC} = appActions
 
 export const loginTC = createAsyncThunk<undefined, LoginParamsType, {
     rejectValue: { errors: string[], fieldsErrors?: FieldErrorType[] }
@@ -45,13 +44,18 @@ export const logoutTC = createAsyncThunk('auth/logout', async (param, {dispatch,
         })
 })
 
-const slice = createSlice({
+export const asyncActions = {
+    loginTC,
+    logoutTC
+}
+
+export const slice = createSlice({
     name: 'auth',
     initialState: {
         isLoggedIn: false
     },
     reducers: {
-        setIsLoggedInAC(state, action: PayloadAction<{ value: boolean }>) {
+        setIsLoggedIn(state, action: PayloadAction<{ value: boolean }>) {
             state.isLoggedIn = action.payload.value
         }
     },
@@ -65,6 +69,3 @@ const slice = createSlice({
             })
     }
 })
-
-export const authReducer = slice.reducer
-export const {setIsLoggedInAC} = slice.actions
