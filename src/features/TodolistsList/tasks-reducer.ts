@@ -1,9 +1,17 @@
-import {TaskPriorities, TaskStatuses, TaskType, todolistsAPI, UpdateTaskModelType} from '../../api/todolists-api'
+import {
+    FieldErrorType,
+    TaskPriorities,
+    TaskStatuses,
+    TaskType,
+    todolistsAPI,
+    UpdateTaskModelType
+} from '../../api/todolists-api'
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import {handleAsyncServerAppError, handleAsyncServerNetworkError} from "../../utils/error-utils";
 import {AppRootStateType} from "../../app/store";
 import {asyncActions as asyncTodolistsActions} from './todolists-reducer'
 import {appActions} from "../../app";
+import {ThunkError} from "../../utils/types";
 
 const initialState: TasksStateType = {}
 
@@ -22,7 +30,7 @@ export const removeTaskTC = createAsyncThunk('tasks/removeTask', async (param: {
     await todolistsAPI.deleteTask(param.todolistId, param.taskId)
     return ({taskId: param.taskId, todolistId: param.todolistId})
 })
-export const addTaskTC = createAsyncThunk('task/addTask', async (param: { title: string, todolistId: string }, thunkAPI) => {
+export const addTaskTC = createAsyncThunk<TaskType, { title: string, todolistId: string }, ThunkError>('task/addTask', async (param: { title: string, todolistId: string }, thunkAPI) => {
     thunkAPI.dispatch(appActions.setAppStatusAC({status: 'loading'}))
     try {
         const res = await todolistsAPI.createTask(param.todolistId, param.title)

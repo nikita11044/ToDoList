@@ -9,6 +9,7 @@ import {Redirect} from 'react-router-dom'
 import {todolistsActions, todolistsSelectors} from "./index";
 import {selectIsLoggedIn} from "../Auth/selectors";
 import {TodolistDomainType} from "./todolists-reducer";
+import {AddItemFormSubmitHelperType} from "../../utils/types";
 
 type PropsType = {
     demo?: boolean
@@ -18,8 +19,9 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
     const todolists = useSelector<AppRootStateType, Array<TodolistDomainType>>(todolistsSelectors.selectTodolists)
     const tasks = useSelector<AppRootStateType, TasksStateType>(todolistsSelectors.selectTasks)
     const isLoggedIn = useSelector(selectIsLoggedIn)
+    const {fetchTodolistsTC} = useActions(todolistsActions)
 
-    const {fetchTodolistsTC, addTodolistTC} = useActions(todolistsActions)
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         if (demo || !isLoggedIn) {
@@ -28,8 +30,17 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
         fetchTodolistsTC()
     }, [])
 
-    const addTodolist = useCallback((title: string) => {
-        addTodolistTC(title)
+    const addTodolist = useCallback(async (title: string, helper: AddItemFormSubmitHelperType) => {
+        const thunk = todolistsActions.addTodolistTC(title)
+        const resultAction = await dispatch(thunk)
+        if (todolistsActions.addTodolistTC.rejected.match(resultAction)) {
+            if (resultAction.payload?.errors?.length) {
+                const errorMessage = resultAction.payload?.errors[0]
+                helper.setError(errorMessage)
+            } else {
+                helper.setTitle('')
+            }
+        }
     }, [])
 
     if (!isLoggedIn) {
