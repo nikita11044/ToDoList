@@ -1,8 +1,9 @@
-import {authAPI} from '../api/todolists-api'
+import {authAPI} from '../../api/todolists-api'
+import {authActions} from '../Auth'
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {authActions} from "../features/Auth";
+import {appActions} from '../CommonActions/App'
 
-export const initializeAppTC = createAsyncThunk('app/initializeApp', async (param, {dispatch}) => {
+const initializeApp = createAsyncThunk('application/initializeApp', async (param, {dispatch}) => {
     const res = await authAPI.me()
     if (res.data.resultCode === 0) {
         dispatch(authActions.setIsLoggedIn({value: true}))
@@ -12,7 +13,7 @@ export const initializeAppTC = createAsyncThunk('app/initializeApp', async (para
 })
 
 export const asyncActions = {
-    initializeAppTC
+    initializeApp
 }
 
 export const slice = createSlice({
@@ -22,18 +23,18 @@ export const slice = createSlice({
         error: null,
         isInitialized: false
     } as InitialStateType,
-    reducers: {
-        setAppStatusAC: (state, action: PayloadAction<{ status: RequestStatusType }>) => {
-            state.status = action.payload.status
-        },
-        setAppErrorAC: (state, action: PayloadAction<{ error: string | null }>) => {
-            state.error = action.payload.error
-        }
-    },
+    reducers: {},
     extraReducers: builder => {
-        builder.addCase(initializeAppTC.fulfilled, (state, action) => {
-            state.isInitialized = true
-        })
+        builder
+            .addCase(initializeApp.fulfilled, (state, action) => {
+                state.isInitialized = true
+            })
+            .addCase(appActions.setAppStatus, (state, action) => {
+                state.status = action.payload.status
+            })
+            .addCase(appActions.setAppError, (state, action) => {
+                state.error = action.payload.error
+            })
     }
 })
 
@@ -46,4 +47,3 @@ export type InitialStateType = {
     // true когда приложение проинициализировалось (проверили юзера, настройки получили и т.д.)
     isInitialized: boolean
 }
-
